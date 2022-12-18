@@ -1,0 +1,26 @@
+<div class="nav-center">
+  <div class="nav-header">
+    <!--home link ADD-->
+    <a href="/" class="nav-logo">
+      <img src="../../../assets/logo.png" alt="simply recipes" />
+    </a>
+  </div>
+
+  <div class="nav-links">
+    <a routerLink="/" class="nav-link"> home </a>
+    <a routerLink="/recipes/catalog" class="nav-link"> recipes </a>
+    <a *ngIf="isLoggedIn" routerLink="/recipes/new" class="nav-link"> Create new recipe </a>
+    <a routerLink="/about" class="nav-link"> about </a>
+
+
+    <div class="contact-link" *ngIf="!isLoggedIn">
+        <a routerLink="/auth/login" class="btn"> LOGIN </a>
+        <a routerLink="/auth/register" class="btn"> REGISTER </a>
+      </div>
+      
+    <div class="contact-link" *ngIf="isLoggedIn">
+        <a routerLink="/auth/profile" class="btn">{{user?.username}}'s profile </a>
+        <a routerLink="/auth/logout" class="btn"> LOGOUT </a>    
+    </div>
+  </div>
+</div>

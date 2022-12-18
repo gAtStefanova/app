@@ -1,0 +1,50 @@
+  
+
+    <section id="container">
+        <div class="container-info">
+            <!-- Do not forget to change the path to the image -->
+         
+
+            <form #form="ngForm" class="container-text" (ngSubmit)="loginHandler(form)">
+                <h2>Login Page</h2>
+
+                <label for="email">Email:</label>
+                <input #emailInput="ngModel" class="input-box" ngModel required [appEmail]="['bg','com']" type="text" id="email" placeholder="Enter your email" name="email" >
+
+
+        <ng-container *ngIf="emailInput.touched">
+            <p class="error" *ngIf="emailInput.errors?.['required']">
+                Email is required!
+            </p>
+            <p class="error" *ngIf="emailInput.errors?.['appEmailValidator']">
+                 Email is not valid!
+            </p>
+        </ng-container>
+
+
+                <label for="password">Password:</label>
+                <input class="input-box" #passInput="ngModel" ngModel type="password" id="password" placeholder="*****" name="password"  [minlength]="5" required>
+                <ng-container *ngIf="passInput.touched">
+                 
+                <p class="error" *ngIf="passInput.errors?.['required']">
+                    Password is required!
+                </p>
+                <p class="error" *ngIf="passInput.errors?.['minlength']">
+                    Password must be at least 5 characters!
+                </p>    
+            </ng-container>
+
+                
+
+                <button class="btn" [disabled]="form.invalid">Login</button>
+                <div class="card-no-account">
+                    <p>Dont have account? <a routerLink="/auth/register">Sign in</a></p>
+                </div>
+
+            </form>
+        </div>
+
+    </section>
+
+
+

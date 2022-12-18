@@ -1,0 +1,12 @@
+<div class="recipes-list">
+  <ng-container *ngFor="let recipe of lastRecipes" >
+    <!-- single recipe -->
+
+    <a href="single-recipe.html" class="recipe">
+      <img  src="{{recipe.imageUrl}}"
+        class="img recipe-img"
+        alt=""
+      />
+      <h5>{{recipe.title}}</h5>
+      <p>Prep : {{recipe.prepTime}} | Cook : {{recipe.cookTime}}</p>
+    </a>

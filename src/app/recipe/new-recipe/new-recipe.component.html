@@ -1,0 +1,68 @@
+<section id="container">
+    <div class="container-info">
+        <!-- Do not forget to change the path to the image -->
+     
+
+        <form #form="ngForm" (ngSubmit)="createHandler(form)" class="container-text">
+            <h2>Create Recipe</h2>
+
+            <label class="recipe-title">Title:</label>
+            <input type="text" class="input-box" #titleInput="ngModel" ngModel required minlength="5" id="recipe-title" placeholder="Recipe Name" name="title"  />
+
+<ng-container *ngIf="titleInput.touched">
+<p class="error" *ngIf="titleInput.errors?.['required']" >Title is required!</p>
+<p class="error" *ngIf="titleInput.errors?.['minlength']">
+    Title must be at least {{titleInput.errors?.['minlength']['requiredLength']}} characters long!
+</p>
+</ng-container>
+
+            <label class="imageUrl">Recipe Image:</label>
+            <input type="text" class="input-box" #imageInput="ngModel" ngModel required [appImageUrl]=[] id="imageUrl" placeholder="http://" name="imageUrl"  />
+            
+            <ng-container *ngIf="imageInput.touched">
+                <p class="error" *ngIf="imageInput.errors?.['required']" >Image is required!</p>
+                <p class="error" *ngIf="imageInput.errors?.['appImageUrlValidator']">Image URL is invalid!</p>
+            </ng-container>
+
+            <label class="description">Property Description:</label>
+            <input type="text" class="input-box" #descripInput="ngModel" ngModel required minlength="10" id="description" placeholder="Description..." name="description" />
+
+            <ng-container *ngIf="descripInput.touched">
+                <p class="error" *ngIf="descripInput.errors?.['required']" >Description is required!</p>
+                <p class="error" *ngIf="descripInput.errors?.['minlength']">
+                    Description must be at least {{descripInput.errors?.['minlength']['requiredLength']}} characters long!
+                </p>
+            </ng-container>
+
+            <label class="prep-time">Prep time:</label>
+            <input type="text" class="input-box" #prepInput="ngModel" required ngModel id="prep-time" placeholder="Prep Time..." name="prepTime"  />
+
+            <p class="error" *ngIf="prepInput.touched && prepInput.errors?.['required']" >Prep Time is required!</p>
+
+
+            <label class="cook-time">Cook Time:</label>
+            <input type="text" class="input-box" #cookInput="ngModel" required ngModel id="cook-time" placeholder="Cook Time..." name="cookTime"  />
+
+            <p class="error" *ngIf="cookInput.touched && cookInput.errors?.['required']" >Cook Time is required!</p>
+
+
+            <label class="ingredients">Ingredients:</label>
+            <input type="text" class="input-box" #ingredientInput="ngModel" ngModel required minlength="5" id="ingredients" placeholder="Ingredients..." name="ingredients" />
+
+            <ng-container *ngIf="ingredientInput.touched">
+                <p class="error" *ngIf="ingredientInput.errors?.['required']" >Ingredients are required!</p>
+                <p class="error" *ngIf="ingredientInput.errors?.['minlength']">
+                    Ingredients must be at least {{ingredientInput.errors?.['minlength']['requiredLength']}} characters long!
+                </p>
+            </ng-container>
+
+            
+            <button class="btn" [disabled]="form.invalid">Create New Recipe</button>
+            <button class="btn" type="button" routerLink="/recipes/catalog">Cancel</button>     
+                 
+            
+
+        </form>
+    </div>
+
+</section>

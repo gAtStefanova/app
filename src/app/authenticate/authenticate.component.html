@@ -1,0 +1,4 @@
+<!-- LOAD LOADER PLEASE
+<app-loader *ngIf="isAuthenticating"></app-loader>-->
+<ng-container *ngIf="isAuthenticating">Loading...</ng-container>
+<ng-content *ngIf="!isAuthenticating"></ng-content>

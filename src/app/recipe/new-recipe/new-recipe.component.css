@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+*{
+    
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+#container{
+    padding-top: 0px;
+    height: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-info{
+    position: relative;
+    max-width: 430px;
+    width: 100%;
+    background-color: #f0f0f0cc;
+    padding: 34px;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px #0f172a;
+   
+}
+.container-info h2{
+    margin-bottom: 25px;
+    position: relative;
+    font-size: 30px;
+    font-weight: 600;
+    color: #333;
+}
+.container-info h2::before{
+    content: "";
+    position:absolute;
+    top:0;
+    bottom: 0;
+    height: 3px;
+    width: 28px;
+    border-radius: 12px;
+    background: #4070f4;
+}
+.container-info form{
+    margin-top: 40px;
+
+}
+.container-info form .input-box{
+    height: 52px;
+    margin: 15px 0;
+}
+
+.container-info .input-box {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding: 0 15px;
+    font-size:17px ;
+    font-weight: 400;
+    color: #333;
+    border: 1.5px solid #C7BEBE;
+border-bottom-width: 2.5px;
+border-radius: 6px;
+transition: all 0.3s ease;
+
+}
+.btn{
+    margin-top: 25px;
+height: 50px;
+width: 360px;
+outline: none;
+padding: 0 15px;
+font-size:17px ;
+font-weight: 400;
+color: #fff;
+border: 1.5px solid #C7BEBE;
+border-bottom-width: 2.5px;
+border-radius: 6px;
+transition: all 0.3s ease;
+
+}
+
+input:focus,
+input:valid{
+    border-color:#4070f4 ;
+}
+form button{
+    color: #fff;
+    letter-spacing: 1px;
+    border: none;
+        background-color:#4070f4;
+        cursor: pointer;
+}
+form button:hover{
+    background: #0e4bf1;
+
+}
+.card-no-account p{
+    color: #707070;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 10px;
+    color: #333;
+    width: 100%;
+    text-align: center;
+}
+
+.card-no-account p a{
+    color: #4070f4;
+    text-decoration: none;
+}
+
+.card-no-account p a:hover{
+    text-decoration: underline;
+}

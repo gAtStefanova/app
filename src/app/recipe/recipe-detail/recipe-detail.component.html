@@ -1,0 +1,104 @@
+<main class="page">
+    <div class="recipe-page" >
+      <section class="recipe-content">
+        <img src="{{recipeDetails?.imageUrl}}"
+          class="img recipe-hero-img"
+        />
+        <article class="second-column">
+            <div>
+              <h4>ingredients</h4>
+              <p class="single-ingredient">{{recipeDetails?.ingredients}}</p>
+              </div>
+              <h4>
+                <ng-container *ngIf="isCreator">
+                <button routerLink="/recipes/detail/edit/{{recipeDetails?._id}}">Edit</button>
+                <button (click)="deleteRecipe()">Delete</button>
+              </ng-container>
+              <ng-container *ngIf="!isCreator">
+                <button>Add to favoutite</button>
+              </ng-container>
+                
+
+              </h4>
+                      </article>
+        <article class="recipe-info">
+         
+          <div class="recipe-icons">
+            <article>
+              <i class="fas fa-clock"></i>
+              <h5>prep time</h5>
+              <p>{{recipeDetails?.prepTime}}</p>
+            </article>
+            <article>
+              <i class="far fa-clock"></i>
+              <h5>cook time</h5>
+              <p>{{recipeDetails?.cookTime}}</p>
+            </article>
+            <article>
+              <i class="fas fa-heart"></i>
+              <h5>Added to favourites</h5>
+<p>{{([recipeDetails?.subscribers].length)}}</p>
+            </article>
+            
+          </div>
+        
+        </article>
+      </section>
+      <!-- content -->
+      <section class="recipe-content">
+        <article>
+          <h2>{{recipeDetails?.title}}</h2>
+          <p>{{recipeDetails?.description}}</p>
+        
+        </article>
+        
+
+                    <div class="answer-comment">
+                        <p><span>currentUser</span> comment:</p>
+                        <div class="answer">
+                            <form #formPost="ngForm" (ngSubmit)="postHandler(formPost)">
+                                <textarea #postText="ngModel" ngModel name="postText" id="comment" cols="30" rows="10"></textarea>
+                                <button [disabled]="formPost.invalid">Post</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                    <div class="comment">
+                        <header class="header">
+                            <p><span>Mark</span> posted on <time>2020-10-10 14:28:11</time></p>
+                        </header>
+                        <div class="comment-main">
+                            <div class="userdetails">
+                                <img src="/assets/profile.png" alt="avatar">
+                            </div>
+                            <div class="post-content">
+                                <p>Lorem ipsum dolor sit amet consectetur </p>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <!-- <i class="fas fa-thumbs-up"></i>
+                            <i class="fas fa-thumbs-down"></i> -->
+                            <p><span>3</span> likes</p>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <header class="header">
+                            <p><span>Mark</span> posted on <time>2020-10-10 14:28:11</time></p>
+                        </header>
+                        <div class="comment-main">
+                            <div class="userdetails">
+                                <img src="/assets/profile.png" alt="avatar">
+                            </div>
+                            <div class="post-content">
+                                <p>Lorem ipsum dolor sit amet consectetur </p>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <!-- <i class="fas fa-thumbs-up"></i>
+                            <i class="fas fa-thumbs-down"></i> -->
+                            <p><span>3</span> likes</p>
+                        </div>
+                    </div>
+      
+    </div>
+  </main>

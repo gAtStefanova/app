@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="profile">
+
+  <form [formGroup]="form" (ngSubmit)="saveProfile()">
+      <img src="../../../assets/profile.png" alt="default user" />
+      <h3>User Info:</h3>
+      <div class="flex">
+        <p>Username:</p>
+        <p>
+            <ng-container *ngIf="showEditMode">
+                <input type="text" formControlName="username" >
+                <ng-container *ngIf="form.get('username')?.touched || formSubmited">
+                    <p class="error" *ngIf="form.get('username')?.errors?.['required']">Username is required!</p>
+                    <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">Username must be at least 5 characters!</p>
+                </ng-container>
+            </ng-container>
+          <ng-container *ngIf="!showEditMode">
+            {{ user.username }}
+          </ng-container>
+        </p>
+      </div>
+
+      <div class="flex">
+        <p>Email:</p>
+        <p>
+            <ng-container *ngIf="showEditMode">
+
+                <input  type="text" formControlName="email" >
+                <ng-container *ngIf="form.get('email')?.touched || formSubmited">
+                  <p class="error" *ngIf="form.get('email')?.errors?.['required']">Email is required</p>
+                  <p class="error" *ngIf="form.get('email')?.errors?.['appEmailValidator']">Email is not valid!</p>
+                  
+                </ng-container>
+            </ng-container>
+            
+          <ng-container *ngIf="!showEditMode">
+            {{ user.email }}
+          </ng-container>
+        </p>
+        
+      </div>
+<ng-template #edit>
+    <button class="btn" type="submit" (click)="saveProfile()">Save</button>
+    <button class="btn" type="button" (click)="redirect()">Cancel</button>
+
+</ng-template>
+
+<ng-template #notEdit>
+    <button class="btn" type="button" (click)="toggleEditMode()">Edit</button>
+    </ng-template>
+<ng-container *ngTemplateOutlet="showEditMode ? edit : notEdit"></ng-container>
+     
+     <!--   <button class="btn" (click)="showEditMode ? undefined : toggleEditMode()"
+          [type]="showEditMode ? 'submit' : 'button'" >
+          <ng-container *ngIf="showEditMode">Save</ng-container>
+          <ng-container *ngIf="!showEditMode">Edit</ng-container>
+        </button>-->
+  </form>
+</div>
+
+</div>
